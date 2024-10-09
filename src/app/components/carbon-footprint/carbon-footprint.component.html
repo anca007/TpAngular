@@ -1,6 +1,6 @@
 <div>
   Consommation pour 100 km : <span
-  [ngStyle]="{'color' : consumptionFor100Km > 7 ? 'red' :  consumptionFor100Km < 4 ? 'green' : 'black' }">{{ consumptionFor100Km | number : '1.2-2' }} </span>
+  [ngStyle]="{'color' : consumptionFor100Km > 7 ? 'red' :  consumptionFor100Km < 4 ? 'green' : 'black' }">{{ consumptionFor100Km | number : '1.2-2' }} </span> L
 </div>
 <div *ngIf="consumptionFor100Km > 7">Attention votre consommation est élevée</div>
 <div *ngIf="consumptionFor100Km < 4">Félicitations, votre consommation est faible</div>
@@ -11,7 +11,10 @@
 </div>
 <div>
   <!--  1.2-2 -> minimum un chiffre avant la virgule et 2 chiffres après la virgule (min-max)-->
-  Consommation totale : {{ distance / 100 * consumptionFor100Km | number : '1.2-2' }}
+  Consommation totale : {{ distance / 100 * consumptionFor100Km | number : '1.2-2' }} L
+</div>
+<div>
+  Quantité de CO2 totale : {{ co2 }} Kg
 </div>
 
 <app-carbon-footprint-form></app-carbon-footprint-form>
@@ -24,12 +27,14 @@
   <tr>
     <th>Distance</th>
     <th>Consommation pour 100 kms</th>
+    <th>Quantité de CO2</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let travel of travels">
     <td>{{ travel.distance }} km</td>
-    <td>{{ travel.consumptionFor100Km }} L</td>
+    <td>{{ travel.consumptionFor100Km }}</td>
+    <td>{{ travel.quantityCo2 }}</td>
   </tr>
   </tbody>
 </table>
