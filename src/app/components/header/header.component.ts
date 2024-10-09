@@ -9,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  public username : string;
+
+  constructor() {
+    this.username = "Sylvain";
+  }
+
+
 }
