@@ -1,0 +1,9 @@
+<h1>Bienvenue sur notre calculateur d'empreinte carbone !</h1>
+
+@if (message) {
+  <div class="error">
+    {{ message }}
+  </div>
+}
+
+<button routerLink="/summary" (click)="login()">Accéder à mon profil</button>
