@@ -3,6 +3,7 @@ import {CarbonFootprintComponent} from "../carbon-footprint/carbon-footprint.com
 import {FooterComponent} from "../footer/footer.component";
 import {HeaderComponent} from "../header/header.component";
 import {CarbonFootprintFormComponent} from "../carbon-footprint-form/carbon-footprint-form.component";
+import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-summary',
@@ -11,7 +12,8 @@ import {CarbonFootprintFormComponent} from "../carbon-footprint-form/carbon-foot
     CarbonFootprintComponent,
     FooterComponent,
     HeaderComponent,
-    CarbonFootprintFormComponent
+    CarbonFootprintFormComponent,
+    HttpClientModule
   ],
   templateUrl: './summary.component.html',
   styleUrl: './summary.component.css'

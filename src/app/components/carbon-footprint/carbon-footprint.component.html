@@ -28,13 +28,15 @@
     <th>Distance</th>
     <th>Consommation pour 100 kms</th>
     <th>Quantité de CO2</th>
+    <th>Transport</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let travel of travels">
     <td>{{ travel.distance }} km</td>
-    <td>{{ travel.consumptionFor100Km }}</td>
+    <td>{{ travel.consumptionFor100Km == 0 ? "" : travel.consumptionFor100Km }}</td>
     <td>{{ travel.quantityCo2 }}</td>
+    <td>{{ travel.travelType ?? 'car' }}</td>
   </tr>
   </tbody>
 </table>

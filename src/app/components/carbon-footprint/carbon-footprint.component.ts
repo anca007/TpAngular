@@ -3,6 +3,7 @@ import {CarbonFootprintFormComponent} from "../carbon-footprint-form/carbon-foot
 import {CarbonFootprintResultComponent} from "../carbon-footprint-result/carbon-footprint-result.component";
 import {DecimalPipe, NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {CarbonFootprintComputeService} from "../../services/carbon-footprint-compute.service";
+import {Travel} from "../../models/travel";
 
 @Component({
   selector: 'app-carbon-footprint',
@@ -16,7 +17,7 @@ import {CarbonFootprintComputeService} from "../../services/carbon-footprint-com
     NgClass,
     NgForOf
   ],
-  providers : [CarbonFootprintComputeService],
+  providers: [CarbonFootprintComputeService],
   templateUrl: './carbon-footprint.component.html',
   styleUrl: './carbon-footprint.component.css'
 })
@@ -24,11 +25,16 @@ export class CarbonFootprintComponent {
 
   public distance: number = 0
   public consumptionFor100Km: number = 0
-  public co2 : number = 0
-  public travels : any[]
+  public co2: number = 0
+  public travels: Travel[] = []
 
-  constructor(private cfpcs : CarbonFootprintComputeService) {
-    this.travels = this.cfpcs.getTravels()
+  constructor(private cfpcs: CarbonFootprintComputeService) {
+    this.cfpcs.getTravels().subscribe(
+      travels =>{
+        this.travels = travels
+        console.log(this.travels)
+      }
+    )
     this.calculateDistanceAndAverage();
   }
 
