@@ -22,7 +22,16 @@ export class CarbonFootprintComputeService {
   }
 
   public addTravel(travel: any) {
-    travel.quantityCo2 = Math.ceil(travel.distance * travel.consumptionFor100Km * 2.3 / 100)
+    if (travel.travelType == 'car') {
+      travel.quantityCo2 = Math.ceil(travel.distance * travel.consumptionFor100Km * 2.3 / 100)
+    } else if (travel.travelType == 'plane') {
+      travel.quantityCo2 = Math.ceil(travel.distance * 0.03)
+    } else {
+      travel.quantityCo2 = Math.ceil(travel.distance * 0.2)
+    }
+
+
+    console.log(travel)
     this.travels.push(travel)
   }
 

@@ -1,9 +1,20 @@
 <h1>Bienvenue sur notre calculateur d'empreinte carbone !</h1>
 
-@if (message) {
-  <div class="error">
-    {{ message }}
-  </div>
+<form>
+  <label for="login">Login</label>
+  <!--  le name est oligatoire dans un form meme son utilité est limité-->
+  <input type="text" id="login" name="login" [(ngModel)]="login"/>
+  <label for="password">Mot de passe</label>
+  <input type="password" id="password" name="password" [(ngModel)]="password"/>
+  <button type="button" (click)="loginUser()">Se connecter</button>
+</form>
+
+@if (error) {
+  @for (er of error; track error) {
+    <div class="error">
+      {{ er }}
+    </div>
+  }
+
 }
 
-<button routerLink="/summary" (click)="login()">Accéder à mon profil</button>

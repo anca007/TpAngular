@@ -14,7 +14,8 @@ export const authGuard: CanActivateFn = (route, state) => {
       , {
        // queryParams: {message: "Vous devez être connecté pour accéder à cette page !"},
         //permet de passer des infos hors url
-        state: {message: "Vous devez être connecté pour accéder à cette page !"}
+        //en faire un service
+        //state: {message: "Vous devez être connecté pour accéder à cette page !"}
       })
     return false
   }

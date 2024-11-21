@@ -1,1 +1,40 @@
+<h1>Ajouter un voyage</h1>
+<form [formGroup]="form">
+  <label for="distance">Distance (km)</label>
+  <input type="number" name="distance" id="distance" formControlName="distance"/>
+  <div class="error" *ngIf="form.get('distance')?.hasError('required')">
+    La distance est requise
+  </div>
+  <div class="error" *ngIf="form.get('distance')?.hasError('min')">
+    La distance doit être positive
+  </div>
+  <label for="travelType">Type de voyage</label>
+  <select id="travelType" formControlName="travelType" (change)="onSelectTravelType()">
+    <option value="car">Voiture</option>
+    <option value="train">Train</option>
+    <option value="plane">Avion</option>
+  </select>
+  <div class="error" *ngIf="form.get('travelType')?.hasError('required')">
+    Le type de voyage est requis
+  </div>
+  <div class="error" *ngIf="form.get('travelType')?.hasError('value')">
+    Ce type de voyage n'est pas autorisé
+  </div>
+  @if (isCar) {
+    <label for="consumptionFor100Km">Consommation pour 100 km (L)</label>
+    <input type="number" name="consumptionFor100Km" id="consumptionFor100Km" formControlName="consumptionFor100Km"/>
+    <div class="error" *ngIf="form.get('consumptionFor100Km')?.hasError('required')">
+      La consommation est requise
+    </div>
+    <div class="error" *ngIf="form.get('consumptionFor100Km')?.hasError('min')">
+      La consommation doit être positive
+    </div>
+  }
 
+  <label for="date">Date</label>
+  <input type="date" name="date" id="date" formControlName="date"/>
+  <div class="error" *ngIf="form.get('date')?.hasError('required')">
+    La date est requise
+  </div>
+  <button type="button" (click)="addTravel()">Ajouter un voyage</button>
+</form>
