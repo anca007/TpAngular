@@ -34,7 +34,9 @@ export class CarbonFootprintFormComponent implements OnInit {
   public addTravel() {
     console.log(this.form)
     if (this.form.valid) {
-      this.cfpcs.addTravel(this.form.value)
+      this.cfpcs.addTravel(this.form.value).subscribe(
+        response => console.log(response)
+      )
     }
   }
 
