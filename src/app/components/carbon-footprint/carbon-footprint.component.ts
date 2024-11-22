@@ -42,9 +42,9 @@ export class CarbonFootprintComponent implements OnInit {
     this.cfpcs.travels$.subscribe(
       travels => {
         this.travels = travels
-        this.calculateDistanceAndAverage();
       }
     )
+    this.calculateDistanceAndAverage();
   }
 
   public add100Km() {

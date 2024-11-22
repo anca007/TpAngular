@@ -15,9 +15,9 @@ import {FormsModule} from "@angular/forms";
 })
 export class HomeComponent {
 
-  public error: String[] = []
-  public login: String = ""
-  public password: String = ""
+  public error: string[] = []
+  public login: string = ""
+  public password: string = ""
 
   constructor(
     private userService: UserService,

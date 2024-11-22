@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {RouterLink} from "@angular/router";
+import {Component} from '@angular/core';
+import {Router, RouterLink} from "@angular/router";
 import {UserService} from "../../services/user.service";
 
 @Component({
@@ -13,14 +13,18 @@ import {UserService} from "../../services/user.service";
 })
 export class HeaderComponent {
 
-  public username : String = "";
+  public username: String = "";
 
-  constructor(private userService : UserService) {
+  constructor(private userService: UserService, private router: Router) {
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.username = this.userService.getUsername();
   }
 
+  public logout() {
+    this.userService.logout()
+    this.router.navigate([''])
+  }
 
 }

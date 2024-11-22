@@ -1,2 +1,9 @@
 <h1>Bienvenue {{ username }}</h1>
-<button routerLink="/profile/{{username}}">Voir mon profil</button>
+
+<nav>
+  <ul>
+    <li><a routerLink="/profile/{{username}}">Voir mon profil</a></li>
+    <li><a (click)="logout()">Se déconnecter</a></li>
+  </ul>
+</nav>
+<!--<button routerLink="/profile/{{username}}">Voir mon profil</button>-->
