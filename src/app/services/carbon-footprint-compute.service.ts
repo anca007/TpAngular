@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Travel, TravelType} from "../models/travel";
-import {map, Observable, Subject, switchMap} from "rxjs";
+import {BehaviorSubject, map, Observable, Subject, switchMap} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarbonFootprintComputeService {
 
-  private travelsSubjects = new Subject<Travel[]>()
+  private travelsSubjects = new BehaviorSubject<Travel[]>([])
   public travels$ = this.travelsSubjects.asObservable()
   private readonly BASE_URL = "http://localhost:8080/"
 
